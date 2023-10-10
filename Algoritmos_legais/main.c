@@ -14,7 +14,7 @@ d) Exibir as áreas das figuras geométricas de forma crescente (da menor para a m
 */
 
 void bubbleSort(int num[], int n) {
-	int temp, c, i = 0;
+	int temp, c, i;
 	
 	for(c = 0; c < n - 1; c++) {
 		for(i = 0; i < n - 1 - c; i++) {
@@ -25,6 +25,21 @@ void bubbleSort(int num[], int n) {
 			}
 		}	
 	}
+}
+
+void bubbleSort2(int num[], int n) {
+	int temp, c, i;
+	
+	for(c = 0; c < n - 1; c++) {
+		for(i = (c + 1); i < n; i++) {
+			if (num[c] > num[i]) {
+				temp = num[c];
+				num[c] = num[i];
+				num[i] = temp;
+			}
+		}	
+	}
+	
 }
 
 int binarySearch(int num[], int len, int bs) {
