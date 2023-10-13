@@ -34,7 +34,7 @@ void bubbleSort2(int num[], int n) {
 	
 }
 
-void ordsel(int num[], int newnum[], int n) {
+void selectionSort(int num[], int newnum[], int n) {
 	// Analisar todos os itens da lista e pegar o menor. Depois colocar o menor em uma nova lista e retirar o menor da lista original.
 	int i, j, indice_menor;
 	int n2 = n;
@@ -103,6 +103,15 @@ int main(int argc, char *argv[]) {
 	for (c = 0; c < (sizeof(num) / sizeof(num[0])); c++) {
 		printf("%i ", num[c]);
 	}
+	
+//	// Selection sort
+//	printf("\n**SELECTION SORT**\n");
+//	selectionSort(num, num2, 4);
+//	
+//	for (c = 0; c < (sizeof(num2) / sizeof(num2[0])); c++) {
+//		printf("%i ", num2[c]);
+//	}
+//	// Se for usar o selection sort, substituir o "num" por "num2" nos codigos subsequentes.
 	
 	printf("\n\n");
 	
