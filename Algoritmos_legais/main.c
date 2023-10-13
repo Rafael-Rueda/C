@@ -2,16 +2,8 @@
 #include <stdlib.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
-/*
-FIGURAS GEOMÉTRICAS – Crie um programa que seja capaz de calcular a área de 4 figuras geométricas,
-são elas, retângulo, triângulo, quadrado e círculo, todas as informações de dimensões das figuras
-devem ser fornecidas pelo usuário do sistema. Após o fornecimento dos dados, o sistema deverá
-realizar o cálculo das áreas de cada figura e exibir os seguintes resultados:
-a) A área calculada para cada figura geométrica.
-b) A figura geométrica com menor área.
-c) A figura geométrica com maior área.
-d) Exibir as áreas das figuras geométricas de forma crescente (da menor para a maior).
-*/
+
+// =-=-=-=-=-=-=-=-=-=-=-=-= Ordenacao =-=-=-=-=-=-=-=-=-=-=-=-=
 
 void bubbleSort(int num[], int n) {
 	int temp, c, i;
@@ -42,6 +34,29 @@ void bubbleSort2(int num[], int n) {
 	
 }
 
+void ordsel(int num[], int newnum[], int n) {
+	// Analisar todos os itens da lista e pegar o menor. Depois colocar o menor em uma nova lista e retirar o menor da lista original.
+	int i, j, indice_menor;
+	int n2 = n;
+	for(j = 0; j < n; j++) {
+		int menor = num[0];
+		for(i = 0; i < n2; i++) {
+			if (num[i] <= menor) {
+				menor = num[i];
+				indice_menor = i;
+			}
+		}
+		newnum[j] = menor;
+
+		// Remover elemento da lista
+		for (i = indice_menor; i < n2 - 1; i++) {
+            num[i] = num[i + 1];
+        }
+        n2--;
+	}
+}
+
+// =-=-=-=-=-=-=-=-=-=-=-=-= Pesquisa =-=-=-=-=-=-=-=-=-=-=-=-=
 int binarySearch(int num[], int len, int bs) {
 	//Variaveis
 	int left, right, mid;
@@ -71,6 +86,7 @@ int main(int argc, char *argv[]) {
 	int c = 0;
 	int num[4] = {-1};
 	int bs = 0;
+	int num2[4] = {-1};
 	
 	printf("Digite quatro valores inteiros:\n");
 	scanf("%i", &num[0]);
@@ -100,6 +116,7 @@ int main(int argc, char *argv[]) {
 	} else {
 		printf("O numero %i nao existe na lista !", bs);
 	}
+	
 	
 	return 0;
 }
