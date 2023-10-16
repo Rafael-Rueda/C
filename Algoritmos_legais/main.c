@@ -56,6 +56,39 @@ void selectionSort(int num[], int newnum[], int n) {
 	}
 }
 
+void quicksort(int array[], int n) {
+	if (n <= 1) {
+		return;
+	}
+	
+	int c, a = 0, b = 0, pivo = array[0];
+	int menor[n];
+	int maior[n];
+	
+	
+	for(c = 1; c < n; c++) {
+		if (array[c] <= pivo ) {
+			menor[a] = array[c];
+			a++;
+		} else if (array[c] > pivo) {
+			maior[b] = array[c];
+			b++;
+		}
+	}
+	
+	quicksort(menor, a);
+	quicksort(maior, b);
+	
+    for (c = 0; c < a; c++) {
+        array[c] = menor[c];
+    }
+    array[a] = pivo;
+
+    for (c = 0; c < b; c++) {
+        array[a + 1 + c] = maior[c];
+    }
+}
+
 // =-=-=-=-=-=-=-=-=-=-=-=-= Pesquisa =-=-=-=-=-=-=-=-=-=-=-=-=
 int binarySearch(int num[], int len, int bs) {
 	//Variaveis
@@ -96,13 +129,15 @@ int main(int argc, char *argv[]) {
 	
 	printf("\n");
 	
-	// Bubble sort
-	printf("**BUBBLE SORT**\n");
-	bubbleSort(num, 4);
-	
-	for (c = 0; c < (sizeof(num) / sizeof(num[0])); c++) {
-		printf("%i ", num[c]);
-	}
+//	// Bubble sort
+//	printf("**BUBBLE SORT**\n");
+//	bubbleSort(num, 4);
+//	
+//	for (c = 0; c < (sizeof(num) / sizeof(num[0])); c++) {
+//		printf("%i ", num[c]);
+//	}
+//	
+//	printf("\n");
 	
 //	// Selection sort
 //	printf("\n**SELECTION SORT**\n");
@@ -112,6 +147,15 @@ int main(int argc, char *argv[]) {
 //		printf("%i ", num2[c]);
 //	}
 //	// Se for usar o selection sort, substituir o "num" por "num2" nos codigos subsequentes.
+//
+//	printf("\n");
+
+	printf("**QUICK SORT**\n");
+	quicksort(num, 4);
+	
+	for (c = 0; c < (sizeof(num) / sizeof(num[0])); c++) {
+		printf("%i ", num[c]);
+	}
 	
 	printf("\n\n");
 	
