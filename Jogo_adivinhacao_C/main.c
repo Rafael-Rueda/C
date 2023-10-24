@@ -11,12 +11,14 @@ int main(int argc, char *argv[])
 	printf("*************************\n");
 	
 	int numero_secreto = rand() % 100 + 1;
+	int pontos = 1000;
 	int chute;
 	while (chute != numero_secreto) {
-		printf("Digite o seu chute: ");
+		printf("\nDigite o seu chute: ");
 		scanf("%d", &chute);
 		if (chute != numero_secreto){
 			printf("Voce errou !\n");
+			pontos -= abs(chute - numero_secreto);
 			if (chute > numero_secreto) {
 				printf("O numero secreto e menor !");
 			} else {
@@ -26,6 +28,8 @@ int main(int argc, char *argv[])
 			printf("Parabens, voce acertou o numero secreto !\n");
 		}
 	}
+	
+	printf("Pontuacao: %d pontos !", pontos);
 	
 	return 0;
 } 

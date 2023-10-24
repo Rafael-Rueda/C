@@ -56,7 +56,7 @@ void selectionSort(int num[], int newnum[], int n) {
 	}
 }
 
-void quicksort(int array[], int n) {
+void quickSort(int array[], int n) {
 	if (n <= 1) {
 		return;
 	}
@@ -76,8 +76,8 @@ void quicksort(int array[], int n) {
 		}
 	}
 	
-	quicksort(menor, a);
-	quicksort(maior, b);
+	quickSort(menor, a);
+	quickSort(maior, b);
 	
     for (c = 0; c < a; c++) {
         array[c] = menor[c];
@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
 //	printf("\n");
 
 	printf("**QUICK SORT**\n");
-	quicksort(num, 4);
+	quickSort(num, 4);
 	
 	for (c = 0; c < (sizeof(num) / sizeof(num[0])); c++) {
 		printf("%i ", num[c]);
